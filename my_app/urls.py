@@ -8,5 +8,6 @@ urlpatterns = [
     path('salary', salary_payment, name='salary_payment'),
     path('promotion', promotion_payment, name='promotion_payment'),
     path('stk', stk, name='stk'),
+    path('callback', callbackurl, name='callback'),
 
 ]
