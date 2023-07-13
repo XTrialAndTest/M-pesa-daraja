@@ -54,6 +54,8 @@ def stk(request, *args, **kwargs):
 
 
 def callbackurl(request):
+    print(request.GET)
+    print(request.POST)
     return HttpResponse(request)
 
 
