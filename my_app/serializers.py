@@ -4,5 +4,5 @@ from .models import *
 
 class DarajaSerializer(serializers.ModelSerializer):
     class Meta:
-        models = Daraja
+        model = Daraja
         fields = '__all__'

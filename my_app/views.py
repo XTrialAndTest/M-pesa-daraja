@@ -61,11 +61,10 @@ def stk(request, *args, **kwargs):
 class Callback(CreateAPIView):
     queryset = Daraja
     serializer_class = DarajaSerializer
-    permission_classes = (AllowAny)
+    permission_classes = [AllowAny]
 
     def create(self, request):
         print('+++++++++++', request.data)
-        return Response('good')
 
     # def callback(self, request, *args, **kwargs):
     #     print('+++++++++++', request.data)
