@@ -1,6 +1,7 @@
 from django_daraja.mpesa.core import MpesaClient
 from django.http import HttpResponse
 from rest_framework.views import APIView
+from rest_framework.response import Response
 import requests
 from django.shortcuts import render
 
@@ -53,10 +54,13 @@ def stk(request, *args, **kwargs):
     return HttpResponse(response)
 
 
-def callbackurl(request):
-    print(request.GET)
-    print(request.POST)
-    return HttpResponse(request)
+class Callback(APIView):
+    def get(self, request):
+        print('+++++++++++', request.data)
+        return Response('good')
+
+    def callback(self, request, *args, **kwargs):
+        print('+++++++++++', request.data)
 
 
 def index(request):
