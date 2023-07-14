@@ -60,7 +60,7 @@ def stk(request, *args, **kwargs):
 
 
 class Callback(CreateAPIView):
-    queryset = Daraja
+    queryset = Daraja.objects.all()
     serializer_class = DarajaSerializer
     permission_classes = [AllowAny]
 
