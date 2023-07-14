@@ -66,6 +66,7 @@ class Callback(CreateAPIView):
 
     def create(self, request):
         print('+++++++++++', request.data)
+        return Response(request.data)
 
 
 def index(request):
