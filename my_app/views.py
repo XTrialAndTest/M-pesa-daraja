@@ -1,9 +1,13 @@
 from django_daraja.mpesa.core import MpesaClient
 from django.http import HttpResponse
 from rest_framework.views import APIView
+from rest_framework.generics import CreateAPIView
+from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 import requests
 from django.shortcuts import render
+from .models import *
+from .serializers import *
 
 
 def business_payment(request):
@@ -54,13 +58,17 @@ def stk(request, *args, **kwargs):
     return HttpResponse(response)
 
 
-class Callback(APIView):
-    def get(self, request):
+class Callback(CreateAPIView):
+    queryset = Daraja
+    serializer_class = DarajaSerializer
+    permission_classes = (AllowAny)
+
+    def create(self, request):
         print('+++++++++++', request.data)
         return Response('good')
 
-    def callback(self, request, *args, **kwargs):
-        print('+++++++++++', request.data)
+    # def callback(self, request, *args, **kwargs):
+    #     print('+++++++++++', request.data)
 
 
 def index(request):
