@@ -16,7 +16,7 @@ def business_payment(request):
     amount = 1
     transaction_desc = 'Description'
     occassion = 'Occassion'
-    callback_url = 'https://api.darajambili.com/express-payment'
+    callback_url = 'https://daraja-e9c3.onrender.com/api/callback'
     response = cl.business_payment(
         phone_number, amount, transaction_desc, callback_url, occassion)
     return HttpResponse(response)
@@ -28,7 +28,7 @@ def promotion_payment(request):
     amount = 1
     transaction_desc = 'Description'
     occassion = 'Occassion'
-    callback_url = 'https://api.darajambili.com/express-payment'
+    callback_url = 'https://daraja-e9c3.onrender.com/api/callback'
     response = cl.business_payment(
         phone_number, amount, transaction_desc, callback_url, occassion)
     return HttpResponse(response)
@@ -39,7 +39,7 @@ def salary_payment(request):
     amount = 1
     transaction_desc = 'Description'
     occassion = 'Occassion'
-    callback_url = 'https://api.darajambili.com/express-payment'
+    callback_url = 'https://daraja-e9c3.onrender.com/api/callback'
     response = cl.business_payment(
         phone_number, amount, transaction_desc, callback_url, occassion)
     return HttpResponse(response)
@@ -52,7 +52,7 @@ def stk(request, *args, **kwargs):
     amount = 1
     account_reference = 'reference'
     transaction_desc = 'Description'
-    callback_url = "https://vercel.com/xtrialandtest/todolist"
+    callback_url = "https://daraja-e9c3.onrender.com/api/callback"
     response = cl.stk_push(phone_number, amount,
                            account_reference, transaction_desc, callback_url)
     print(response)
@@ -66,9 +66,6 @@ class Callback(CreateAPIView):
 
     def create(self, request):
         print('+++++++++++', request.data)
-
-    # def callback(self, request, *args, **kwargs):
-    #     print('+++++++++++', request.data)
 
 
 def index(request):
