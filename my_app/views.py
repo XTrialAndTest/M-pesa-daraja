@@ -55,6 +55,7 @@ def stk(request, *args, **kwargs):
     callback_url = "https://vercel.com/xtrialandtest/todolist"
     response = cl.stk_push(phone_number, amount,
                            account_reference, transaction_desc, callback_url)
+    print(response)
     return HttpResponse(response)
 
 
